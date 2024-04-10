@@ -2,7 +2,6 @@ import { QuantitySelector, Title } from '@/src/components';
 import { initialData } from '@/src/seed/seed';
 import Image from 'next/image';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 
 const productsInCart = [
   initialData.products[ 0 ],
@@ -31,8 +30,6 @@ export default function () {
             <Link href="/" className="underline mb-5">
               Continúa comprando
             </Link>
-         
-
 
           {/* Items */ }
           {
@@ -68,9 +65,6 @@ export default function () {
           }
            </div>
 
-
-
-
           {/* Checkout - Resumen de orden */ }
           <div className="bg-white rounded-xl shadow-xl p-7 h-fit">
             <h2 className="text-2xl mb-2">Resumen de orden</h2>
@@ -88,8 +82,6 @@ export default function () {
               
               <span className="mt-5 text-2xl">Total:</span>
               <span className="mt-5 text-2xl text-right">$ 100</span>
-
-
             </div>
 
             <div className="mt-5 mb-2 w-full">
@@ -99,19 +91,9 @@ export default function () {
                 Checkout
               </Link>
             </div>
-
-
           </div>
-
-
-
         </div>
-
-
-
       </div>
-
-
     </div>
   );
 }

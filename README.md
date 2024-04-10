@@ -1,18 +1,16 @@
-Tesla Shop es una tienda en line
+Tesla Shop es una tienda en linea
 
-Gestor de estado es zustand
-## Getting Started
 
-First, run the development server:
+## Correr en dev
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-Dentro la carpeta app vamos a poner todo lo relacionado a nuestras rutas
--componentes todo lo que no son paginas y separado en categorias
+1. Clonar el repositorio
+2. Crear una copia del ``` env.template ``` y renombrarlo a ``` .env ```y cambiar las variables de entorno.
+3. Instalar dependencias ```npm install```
+4. Levantar la base de datos ```docker compose up -d``` 
+5. Correr las migraciones de prisma ```npx prisma migrate dev```
+6. Ejecutar seed ```npm run seed```
+7. Correr la base de datos ```npm run dev```
+
+
+
+## Correr en producción
