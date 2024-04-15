@@ -19,7 +19,7 @@ interface Props {
   }
 }
 
-export default function ({ params }: Props) {
+export default function OrderPage({ params }: Props) {
 
   const { id } = params;
   // todo: Verficar 

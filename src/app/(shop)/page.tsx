@@ -1,8 +1,11 @@
-import Image from "next/image";
+export const revalidate = 60; // 60 segundos
+
+//import Image from "next/image";
 import { redirect } from 'next/navigation';
-import { Pagination, ProductGrid, Title } from '@/src/components';
-import { initialData } from '@/src/seed/seed';
+
 import { getPaginatedProductsWithImages } from '@/src/actions';
+import { Pagination, ProductGrid, Title } from '@/src/components';
+//import { initialData } from '@/src/seed/seed';
 
 
 interface Props {

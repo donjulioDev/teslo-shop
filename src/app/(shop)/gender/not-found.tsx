@@ -3,9 +3,9 @@
 import { PageNotFound } from '@/src/components';
 
 
-export default function () {
+export default function GenderNotFoundPage() {
 
   return (
    <PageNotFound  />
   );
-}
+};
