@@ -1,7 +1,7 @@
 'use server'
 
 import prisma from "@/src/lib/prisma";
-import { sleep } from "@/src/utils";
+//import { sleep } from "@/src/utils";
 
 
 export const getStockBySlug = async (slug: string): Promise<number> => {
