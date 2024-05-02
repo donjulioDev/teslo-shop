@@ -1,21 +1,35 @@
 'use client';
 
 import { authenticate } from '@/src/actions';
+import clsx from 'clsx';
 import Link from 'next/link';
-import { useFormState } from 'react-dom';
+import { useEffect } from 'react';
+import { useFormState, useFormStatus } from 'react-dom';
+import {  IoInformationOutline } from 'react-icons/io5';
 
 export const LoginForm = () => {
 
-   const [state, dispatch] = useFormState(authenticate,  undefined );
-      console.log(state);
-    
+  const [state, dispatch] = useFormState(authenticate, undefined);
 
+   console.log( 'desde: LoginForm' )
+  console.log(state);
+    
+  useEffect(() => {
+    if( state === 'Success' ){
+      //redireccionar
+       // router.replace('/');
+       window.location.replace('/')
+    }
+  }, [state])
+  
+ 
   return (
     <form 
     action={ dispatch } 
     className="flex flex-col">
 
     <label htmlFor="email">Correo electrónico</label>
+    <p>admin@google.com user@google.com</p>
     <input
       className="px-5 py-2 border bg-gray-200 rounded mb-5"
       type="email" 
@@ -29,12 +43,24 @@ export const LoginForm = () => {
       type="password" 
       name='password'
       />
-      
-    <button
+  <div
+  className='flex'>
+{ state === "CredentialsSignin" && (
+  <div className='mb-2 flex flex-row'>
+  <IoInformationOutline className='h-5 w-5 text-red-500' />
+  <p className="text-sm text-red-500">Credenciales incorrectas</p>
+  </div>
+)
+
+}
+</div>    
+    <LoginButton  />
+
+    {/* <button
       type='submit'
       className="btn-primary">
       Ingresar
-    </button>
+    </button> */}
 
 
     {/* divisor l ine */ }
@@ -52,4 +78,22 @@ export const LoginForm = () => {
 
   </form>
   )
-}
+};
+
+function LoginButton() {
+  const { pending } = useFormStatus();
+ 
+  return (
+    <button   type='submit'  className={
+      clsx(
+     {   "btn-primary": !pending ,
+         "btn-disabled": pending
+    }
+      )
+    }
+    disabled={pending}
+    >
+          Ingresar
+      </button>
+  );
+  }
