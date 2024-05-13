@@ -11,6 +11,7 @@ export * from './auth/register';
 
 export * from './country/get-counyries';
 
+export * from './order/place-order';
 
 export * from './product/get-product-by-slug';
 export * from '../actions/product/get-product-by-slug'

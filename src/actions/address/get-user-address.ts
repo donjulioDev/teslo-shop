@@ -9,13 +9,13 @@ import prisma from "@/src/lib/prisma";
       });
 
         if ( !address ) return null;
-      const { countryId, address2, ...rest } = address
+      const { countryId, address2, city, ...rest } = address
 
       return {
         ...rest,
         country: countryId,
         address2: address2 ? address2 : '',
-        city: 'Hola Mundo'
+        city: city
       };
        
     } catch (error) {

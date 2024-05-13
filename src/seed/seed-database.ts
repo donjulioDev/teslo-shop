@@ -6,6 +6,10 @@ async function main(){
 
   // 1, Borrar registros previos
  // await Promise.all([
+  await prisma.orderAddress.deleteMany();
+  await prisma.orderItems.deleteMany();
+  await prisma.order.deleteMany();
+
   await prisma.userAddress.deleteMany();
   await prisma.user.deleteMany();
   await prisma.country.deleteMany();

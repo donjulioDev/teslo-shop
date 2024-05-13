@@ -10,8 +10,10 @@ Tesla Shop es una tienda en linea
 4. Levantar la base de datos ```docker compose up -d``` 
 5. Correr las migraciones de prisma ```npx prisma migrate dev```
 6. Ejecutar seed ```npm run seed```
-    Si la terminal arroja  <-- Seed ejecutado correctamente -->  significa que se cargo la base de datos
-7. Correr la base de datos ```npm run dev```
+    Si la terminal arroja  <-- Seed ejecutado correctamente -->  significa que se cargo la base de 
+7. Limpiar el localStorage del navegador
+    En Chrome esa en la pestaña de Aplications
+8. Correr la base de datos ```npm run dev```
 
 
 
