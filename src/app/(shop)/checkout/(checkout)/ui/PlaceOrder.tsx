@@ -5,10 +5,14 @@ import { placeOrder } from '@/src/actions';
 import { useAdressStore, useCartstore } from '@/src/store';
 import { currencyFormat } from '@/src/utils/currencyFormat';
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
 
 export const PlaceOrder = () => {
 
+  const router = useRouter();
+
   const [loaded, setLoaded] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [isPlacingOrder, setIsPlacingOrder] = useState(false);
 
   const address = useAdressStore(state => state.address);
@@ -16,6 +20,7 @@ export const PlaceOrder = () => {
   const { itemsInCart, subTotal, tax, total } = useCartstore( state => state.getSummaryInformation());
 
 const cart = useCartstore( state => state.cart );
+const clearCart = useCartstore( state => state.clearCart );
 
   useEffect(() => {
     setLoaded(true);
@@ -31,15 +36,16 @@ const cart = useCartstore( state => state.cart );
         size: product.size,
       }))
 
-        console.log({address, productsToOrder});
-//Todo: Server action
-
+     //! Server Action
    const resp =   await placeOrder(productsToOrder, address);
-        console.log( 'desde: PlaceOrder' )
-console.log({resp});
-        // if(!resp.ok){
-        //   setIsPlacingOrder(false);
-      //  }
+      if(!resp.ok){
+        setIsPlacingOrder(false);
+        setErrorMessage(resp.message);
+        return;
+      }  
+      //* Todo salio bien
+      clearCart()
+      router.replace('/orders/' + resp.order?.id )
    }
 
   if (!loaded) {
@@ -95,7 +101,7 @@ console.log({resp});
           </span>
         </p>
 
-        {/* <p className="text-red-500">Error de creación</p> */}
+        <p className="text-red-500">{errorMessage}</p>
         <button
         onClick={ onPlaceOrder }
           className={
