@@ -16,7 +16,6 @@ Tesla Shop es una tienda en linea
 8. Correr la base de datos ```npm run dev```
 
 
-
 ## Correr en producción
 
 
