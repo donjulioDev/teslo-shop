@@ -12,6 +12,12 @@ export const Footer = () => {
         <span className='mx-2'> | shop</span>
         <span className='flex'><TbCopyrightOff className='mx-1' size={20}  />  {new Date().getFullYear() }  </span> 
       </Link>
+      <Link
+      className='mx-4'
+        href='https://donjulio.dev/'
+      >
+        Made by: Don Julio
+      </Link>
       <Link 
         href='/'
         className='mx-4'

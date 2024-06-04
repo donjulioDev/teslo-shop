@@ -215,8 +215,8 @@ export const ProductForm = ({ product, categories }: Props) => {
               ))
             }
 
+{/* ? Carga de Imagenes */}
           </div>
-//? Carga de Imagenes
           <div className="flex flex-col mb-2">
             <span>Fotos</span>
             <input
