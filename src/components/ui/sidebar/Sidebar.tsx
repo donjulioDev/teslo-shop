@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React, { useEffect } from 'react'
 import { IoCloseOutline, IoLogInOutline, IoLogOutOutline, IoPeopleOutline, IoPersonOutline, IoSearchOutline, IoShirtOutline, IoTicketOutline } from 'react-icons/io5'
 import clsx from 'clsx';
-import {  logout } from '@/src/actions';
+import { logout } from '@/src/actions';
 
 
 export const Sidebar = () => {
@@ -88,7 +88,7 @@ export const Sidebar = () => {
               </Link>
 
               <button
-                onClick={() => (  logout(), closeMenu() )}
+                onClick={() => (logout(), closeMenu())}
                 // onClick={ () => console.log('picaste salir')    }
                 className="flex w-full items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
               >
@@ -118,24 +118,27 @@ export const Sidebar = () => {
         {
           role === 'admin' &&
           <>
-          {/* Separador */}
-          <div className="w-full  h-px bg-gray-200 my-10" />
+            {/* Separador */}
+            <div className="w-full  h-px bg-gray-200 my-10" />
             <Link
-              href="/"
+              href="/admin/products"
+              onClick={() => closeMenu()}
               className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
             >
               <IoShirtOutline size={30} />
               <span className="ml-3 text-xl">Productos</span>
             </Link>
             <Link
-              href="/"
+              href="/admin/orders"
+              onClick={() => closeMenu()}
               className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
             >
               <IoTicketOutline size={30} />
               <span className="ml-3 text-xl">Ordenes</span>
             </Link>
             <Link
-              href="/"
+              href="/admin/users"
+              onClick={() => closeMenu()}
               className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
             >
               <IoPeopleOutline size={30} />
