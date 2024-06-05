@@ -29,7 +29,6 @@ export const LoginForm = () => {
     className="flex flex-col">
 
     <label htmlFor="email">Correo electrónico</label>
-    <p>admin@google.com user@google.com</p>
     <input
       className="px-5 py-2 border bg-gray-200 rounded mb-5"
       type="email" 
